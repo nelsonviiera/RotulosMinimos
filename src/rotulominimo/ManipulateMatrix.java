@@ -49,8 +49,42 @@ public class ManipulateMatrix {
     /*
     *Inverte as colunas de uma matriz que esta espelhada
     */
-    public int[][] invertMatrix(){
-        int[][] invertedMatrix = null;
+    public int[][] invertMatrix(int[][] matriz, int nVertice){
+        String print;
+        int[][] invertedMatrix = new int[nVertice][nVertice];
+        for(int i = 0; i < nVertice; i++){// os dois fors percorrem os lugares onde serão 0
+            for(int j = 0; j <= i; j++){//ou seja abaixo da diagonal principal e a propria diagonal
+                invertedMatrix[i][j] = 0;
+            }
+        }
+        
+        int lin = 0;//controlar as linhas e colunas da matriz espelhada
+        int colun = 0;
+        int auxcolun = 1;
+        int auxverticeatual = nVertice - 2;
+        
+        System.out.println(" ");
+        for(int i = 0; i < nVertice - 1; i++){
+            colun = auxcolun;
+            for(int j = auxverticeatual; j >= 0; j--){//ultima coluna é nvertice -2
+                invertedMatrix[lin][colun] = matriz[i][j];
+                colun++;
+            }
+            lin++;
+            auxcolun++;
+            auxverticeatual--;
+        }
+        
+      
+        System.out.println(" ");
+    
+        for(int i = 0; i < nVertice; i++){
+            print = "";
+            for(int j = 0; j < nVertice; j++){
+                print = print + invertedMatrix[i][j] + " ";
+            }
+            System.out.println(print);
+        }
         return invertedMatrix;
     }
 }

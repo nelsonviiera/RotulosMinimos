@@ -24,7 +24,7 @@ public class Arquivo {
     
     public List TxtToString() throws FileNotFoundException{
         List<String> arquivo = new ArrayList<String>();
-        File arquivotxt = new File("LDGraph20_20certo.txt");//arquivo txt para ler
+        File arquivotxt = new File("LDGraph20_20certo.txt");//arquivo txt para ler LDGraph20_20certo.txt
         InputStream in = new FileInputStream(arquivotxt);
         Scanner scan = new Scanner(in);
         
