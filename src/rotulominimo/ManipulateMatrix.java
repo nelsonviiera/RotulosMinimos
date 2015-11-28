@@ -54,7 +54,7 @@ public class ManipulateMatrix {
         int[][] invertedMatrix = new int[nVertice][nVertice];
         for(int i = 0; i < nVertice; i++){// os dois fors percorrem os lugares onde serão 0
             for(int j = 0; j <= i; j++){//ou seja abaixo da diagonal principal e a propria diagonal
-                invertedMatrix[i][j] = 0;
+                invertedMatrix[i][j] = -1;
             }
         }
         

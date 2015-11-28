@@ -17,7 +17,7 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
     HashMap<Vertice,ArrayList<Vertice>> grafo = new HashMap<Vertice,ArrayList<Vertice>>();
     
     @Override
-    public ArrayList<Vertice> getVerticesAdjacentes(Vertice u) {
+    public ArrayList<Vertice> getVerticesAdjacentes(Vertice u) {//funcionando
         if(u != null && this.grafo.containsKey(u))
             return this.grafo.get(u);
         else
@@ -28,14 +28,14 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
     retorna a lista com todos os vertices do grafo
     */   
     @Override
-    public ArrayList<Vertice> getVertices() {
+    public ArrayList<Vertice> getVertices() {//funcionando
         ArrayList<Vertice> keys = new ArrayList<Vertice>();
         ArrayList<Vertice> listVertices = new ArrayList<Vertice>();
         try{
             keys.addAll(grafo.keySet());
 
             for(int i=0;i<keys.size();i++)
-                listVertices.addAll(grafo.get(keys.get(i)));
+            listVertices.addAll(grafo.get(keys.get(i)));
 
             listVertices.addAll(keys);
 
@@ -70,7 +70,7 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
     }
 
     @Override
-    public Vertice getVertice(String id) {
+    public Vertice getVertice(String id) { //funcionando
        ArrayList<Vertice> keys = new ArrayList<Vertice>();
         ArrayList<Vertice> listVertices = null;
         try{
@@ -100,7 +100,7 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
     }
 
     @Override
-    public void adicionaVertice(Vertice verticeNoGrafo, Vertice verticeAdicionado) {
+    public void adicionaVertice(Vertice verticeNoGrafo, Vertice verticeAdicionado) {//funcionando
         if(verticeNoGrafo != null && verticeAdicionado != null && this.grafo.containsKey(verticeNoGrafo)){
             this.grafo.get(verticeNoGrafo).add(verticeAdicionado);
         }
@@ -110,7 +110,7 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
      * Adciona um vertice no grafo, sem ligação com outro vertice (pode estar errado).
      */
     @Override
-    public void adicionaVertice(Vertice verticeAdicionado) {
+    public void adicionaVertice(Vertice verticeAdicionado) {//funcionando
        if(!grafo.containsKey(verticeAdicionado))
             this.grafo.put(verticeAdicionado, new ArrayList<Vertice>());
         else

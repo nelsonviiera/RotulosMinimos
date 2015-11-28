@@ -26,7 +26,7 @@ public class RotuloMinimo {
         List<int[][]> listaDeMatriz = new ArrayList<int[][]>();//String para matriz de int
         txt = arq.TxtToString();//todo o txt esta armazenado nesta variavel list string    
         
-        String vertRotulo = txt.get(0);
+        String vertRotulo = txt.get(0);// linha do vertice e rotulo
         nVertice = Integer.parseInt(String.valueOf(vertRotulo.split(" ")[0]));
         nRotulo = Integer.parseInt(String.valueOf(vertRotulo.split(" ")[1])); 
         ManipulateMatrix manipulatematrix = new ManipulateMatrix();
@@ -45,14 +45,35 @@ public class RotuloMinimo {
         }
         
         int[][] testeespelho = manipulatematrix.invertMatrix(teste, nVertice); //espelhando a matriz
-        
-        Vertice v1 = new Vertice("1");
+        /*Vertice v1 = new Vertice("1");
         Vertice v2 = new Vertice("2");
         ArestaRotulo a1 = new ArestaRotulo(v1, v2, "18");
         System.out.println("Vertice: " + v2.getId());
-        System.out.println("Aresta: " + a1.getPeso() + "  Vertice: " + a1.getVertice1().getId());
+        System.out.println("Aresta: " + a1.getPeso() + "  Vertice: " + a1.getVertice1().getId());*/
+        GrafoListaAdjacencia grafoTeste = new GrafoListaAdjacencia();//construção do grafo a partir daqui
+        for(int i = 0; i < nVertice; i++){
+            Vertice v = new Vertice(String.valueOf(i));
+            grafoTeste.adicionaVertice(v);
+        }
         
+        List<Vertice> listaVertice2 = new ArrayList<Vertice>();//para testar vertices adjcentes
         
+        for(int i = 0; i < nVertice; i++){
+            for(int j = 0; j < nVertice; j++){
+                if(testeespelho[i][j] != -1 & testeespelho[i][j] != nRotulo){//diferente de -1 e 20, tem aresta
+                   Vertice v = grafoTeste.getVertice(String.valueOf(i));
+                   Vertice vAdj = grafoTeste.getVertice(String.valueOf(j));
+                   grafoTeste.adicionaVertice(v, vAdj);//adiciona adjacencia
+                }
+            }
+        }
+        
+        Vertice v = grafoTeste.getVertice(String.valueOf(1));// ver adj de vertice 0
+        listaVertice2 = grafoTeste.getVerticesAdjacentes(v);
+        for(int i = 0; i < listaVertice2.size(); i++){
+           Vertice v2 = listaVertice2.get(i);
+           System.out.println("VerticesAdj de v" + v.getId() + "  " + v2.getId());
+        }
            
     }
     
