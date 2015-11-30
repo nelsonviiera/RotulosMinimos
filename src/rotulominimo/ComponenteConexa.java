@@ -17,7 +17,7 @@ public class ComponenteConexa {
     
     }
     
-    public void CCcount(GrafoListaAdjacencia grafo, int nVertice){
+    public int CCcount(GrafoListaAdjacencia grafo, int nVertice){
         int count = 0;//contador para números de componentes conexas
         List<String> listaVerticeNVisitado = new ArrayList<String>();//lista com os vertices nao visitados
         for(int i = 0; i < nVertice; i++){
@@ -53,6 +53,7 @@ public class ComponenteConexa {
             }
             //listaVerticeNVisitado.remove(0);
         }
-        System.out.println(count);
+        System.out.println("Numero de componentes: " + count);
+        return count;
     }
 }

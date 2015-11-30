@@ -33,7 +33,7 @@ public class RotuloMinimo {
         listaDeMatriz = manipulatematrix.convertMatrixInt(txt, nVertice);
          
         int[][] teste = new int[nVertice-1][nVertice-1];
-        teste = listaDeMatriz.get(0); //cada posicao é uma matriz da instancia
+        teste = listaDeMatriz.get(1); //cada posicao é uma matriz da instancia
         String print = "";
         for(int i = 0; i < nVertice - 1; i++){//printar a matriz
             print = "";
@@ -46,12 +46,12 @@ public class RotuloMinimo {
         int[][] testeespelho = manipulatematrix.invertMatrix(teste, nVertice); //espelhando a matriz, atriz certa
         
         GrafoListaAdjacencia grafoTeste = new GrafoListaAdjacencia();//construção do grafo a partir daqui
-        for(int i = 0; i < nVertice; i++){
+        for(int i = 0; i < nVertice; i++){//adicionar somente os vertices sem as arestas
             Vertice v = new Vertice(String.valueOf(i));//instancia cada vertice do grafo 
             grafoTeste.adicionaVertice(v);//adiciona ele no grafo, em arestas
         }
         
-        for(int i = 0; i < nVertice; i++){
+        for(int i = 0; i < nVertice; i++){//adicionar adjacencia
             for(int j = 0; j < nVertice; j++){
                 if(testeespelho[i][j] != -1 & testeespelho[i][j] != nRotulo){//diferente de -1 e 20, tem aresta
                    Vertice v = grafoTeste.getVertice(String.valueOf(i));
@@ -69,8 +69,12 @@ public class RotuloMinimo {
            Vertice v2 = listaVertice2.get(i);
            System.out.println("VerticesAdj de v" + v.getId() + "  " + v2.getId());
         }
+        
         ComponenteConexa compconex = new ComponenteConexa();//testando contagem de componenete conexa;
-        compconex.CCcount(grafoTeste, nVertice);
+        int count = compconex.CCcount(grafoTeste, nVertice);
+        
+        MVCA mvca = new MVCA();
+        mvca.doMVCA(grafoTeste, nVertice, testeespelho);//testesespelho matriz certa para percorrer
            
     }
     
