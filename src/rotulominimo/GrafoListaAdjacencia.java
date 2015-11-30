@@ -107,7 +107,8 @@ public class GrafoListaAdjacencia implements Grafo<Vertice,Aresta<Vertice,Vertic
     }
 
      /*
-     * Adciona um vertice no grafo, sem ligação com outro vertice (pode estar errado).
+     * Adciona um vertice no grafo, sem ligação com outro vertice
+     * Cria uma chave para o vertice que leva a um arraylist de vertice adjacentes
      */
     @Override
     public void adicionaVertice(Vertice verticeAdicionado) {//funcionando
