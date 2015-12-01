@@ -31,7 +31,8 @@ public class RotuloMinimo {
         nRotulo = Integer.parseInt(String.valueOf(vertRotulo.split(" ")[1])); 
         ManipulateMatrix manipulatematrix = new ManipulateMatrix();
         listaDeMatriz = manipulatematrix.convertMatrixInt(txt, nVertice);
-         
+        
+        /////======for(int p = 0; p < listaDeMatriz.size();p++){///////
         int[][] teste = new int[nVertice-1][nVertice-1];
         teste = listaDeMatriz.get(1); //cada posicao é uma matriz da instancia
         String print = "";
@@ -72,9 +73,9 @@ public class RotuloMinimo {
         
         ComponenteConexa compconex = new ComponenteConexa();//testando contagem de componenete conexa;
         int count = compconex.CCcount(grafoTeste, nVertice);
-        
+        System.out.println("asdw" + count);
         MVCA mvca = new MVCA();
-        mvca.doMVCA(grafoTeste, nVertice, testeespelho);//testesespelho matriz certa para percorrer
+        mvca.doMVCA(grafoTeste, nVertice, testeespelho,nRotulo);//testesespelho matriz certa para percorrer
            
     }
     

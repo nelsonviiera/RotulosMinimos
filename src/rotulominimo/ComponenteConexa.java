@@ -34,26 +34,26 @@ public class ComponenteConexa {
             listaVerticeNVisitado.remove(v.getId());//remove ele pq foi visitado
             
             while(!listaVerticeAdj.isEmpty()){
-               List<Vertice> listaVerticeAdj2 = new ArrayList<Vertice>();
-               Vertice v2 = grafo.getVertice(listaVerticeAdj.get(0).getId());
-               System.out.println("Vertice asd:" + v2.getId());
-               //listaVerticeAdj2 = grafo.getVerticesAdjacentes(v2);
-               for(int i = 0; i < grafo.getVerticesAdjacentes(v2).size(); i++){
+                List<Vertice> listaVerticeAdj2 = new ArrayList<Vertice>();
+                Vertice v2 = grafo.getVertice(listaVerticeAdj.get(0).getId());
+                //System.out.println("Vertice asd:" + v2.getId());
+                //listaVerticeAdj2 = grafo.getVerticesAdjacentes(v2);
+                for(int i = 0; i < grafo.getVerticesAdjacentes(v2).size(); i++){
                    listaVerticeAdj2.add(grafo.getVerticesAdjacentes(v2).get(i));
-               }
+                }
 
-               for(int i = 0; i < listaVerticeAdj2.size(); i++){
-                   if(listaVerticeNVisitado.contains(listaVerticeAdj2.get(i).getId()) && !listaVerticeAdj.contains(listaVerticeAdj2.get(i))){
+                for(int i = 0; i < listaVerticeAdj2.size(); i++){
+                    if(listaVerticeNVisitado.contains(listaVerticeAdj2.get(i).getId()) && !listaVerticeAdj.contains(listaVerticeAdj2.get(i))){
                        listaVerticeAdj.add(listaVerticeAdj2.get(i));
-                   }
-               }
+                    }
+                }
                
                listaVerticeNVisitado.remove(v2.getId()); 
                listaVerticeAdj.remove(v2);
             }
             //listaVerticeNVisitado.remove(0);
         }
-        System.out.println("Numero de componentes: " + count);
+        //System.out.println("Numero de componentes: " + count);
         return count;
     }
 }
