@@ -20,7 +20,7 @@ public class MVCA {
     public void doMVCA(GrafoListaAdjacencia grafo, int nVertice, int[][] matrizAdj, int nRotulo){
         ComponenteConexa compconex = new ComponenteConexa();
         int count = nVertice;//contar componentes
-        int countdef = 20;
+        int countdef = 10000;
         int countaux;
         int label = -1;
         List<Integer> listaRotuloNVisitado = new ArrayList<Integer>();
@@ -38,7 +38,6 @@ public class MVCA {
         }
         
         while(countdef > 1){
-        
             for(int k = 0; k < listaRotuloNVisitado.size(); k++){
                 GrafoListaAdjacencia subgrafoaux2 = new GrafoListaAdjacencia();
                 for(int i = 0; i < nVertice; i++){//inicializar subgrafo de teste rotulo minimo, é um aux
@@ -71,20 +70,21 @@ public class MVCA {
                     }
                 }
                 countaux = compconex.CCcount(subgrafoaux2, nVertice);//contar as componentes do grafo resultante do label k
-                System.out.println("Label: " + k);
-                System.out.println("Count: " + countaux);
-                System.out.println(" ");
+                //System.out.println("Label: " + k);
+                //System.out.println("Count: " + countaux);
+                //System.out.println(" ");
                 if(countaux < count){
                     label = k;
                     count = countaux;
+                    //System.out.println("label: " + label);
                 }
             }
-            System.out.println("Label escolhido:" + label);
+            //System.out.println("Label escolhido:" + label);
             countdef = count; //coundef definitivo
-            System.out.println("CountDef" + countdef);
-            count = 20;
+            //System.out.println("CountDef" + countdef);
+            count = 10000;
             listaRotuloUtilizado.add(label);
-            //listaRotuloNVisitado.remove(label); 
+            //listaRotuloNVisitado.remove(label);
         }
         
         String teste = "";

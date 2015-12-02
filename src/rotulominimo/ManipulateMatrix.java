@@ -63,7 +63,7 @@ public class ManipulateMatrix {
         int auxcolun = 1;
         int auxverticeatual = nVertice - 2;
         
-        System.out.println(" ");
+        //System.out.println(" ");
         for(int i = 0; i < nVertice - 1; i++){
             colun = auxcolun;
             for(int j = auxverticeatual; j >= 0; j--){//ultima coluna é nvertice -2
@@ -76,15 +76,15 @@ public class ManipulateMatrix {
         }
         
       
-        System.out.println(" ");
+        //System.out.println(" ");
     
-        for(int i = 0; i < nVertice; i++){
+        /*for(int i = 0; i < nVertice; i++){
             print = "";
             for(int j = 0; j < nVertice; j++){
                 print = print + invertedMatrix[i][j] + " ";
             }
             System.out.println(print);
-        }
+        }*/
         return invertedMatrix;
     }
 }
