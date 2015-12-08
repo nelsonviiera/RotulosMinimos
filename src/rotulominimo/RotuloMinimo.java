@@ -25,6 +25,7 @@ public class RotuloMinimo {
         List<String> txt = new ArrayList<String>();//txt para arraylist de string
         List<int[][]> listaDeMatriz = new ArrayList<int[][]>();//String para matriz de int
         txt = arq.TxtToString();//todo o txt esta armazenado nesta variavel list string    
+        long time1 = System.currentTimeMillis();
         
         String vertRotulo = txt.get(0);// linha do vertice e rotulo
         nVertice = Integer.parseInt(String.valueOf(vertRotulo.split(" ")[0]));
@@ -68,10 +69,14 @@ public class RotuloMinimo {
             int count = compconex.CCcount(grafoTeste, nVertice);
             
             if(count == 1){
+                System.out.println("Matriz: " + p);
                 MVCA mvca = new MVCA();
                 mvca.doMVCA(grafoTeste, nVertice, testeespelho,nRotulo);//testesespelho matriz certa para percorrer
+                System.out.println(" ");
             }
         }///////////   
+        long time2 = System.currentTimeMillis();
+        System.out.println("milis: " + (time2 - time1));
     }
     
 }

@@ -36,8 +36,6 @@ public class ComponenteConexa {
             while(!listaVerticeAdj.isEmpty()){
                 List<Vertice> listaVerticeAdj2 = new ArrayList<Vertice>();
                 Vertice v2 = grafo.getVertice(listaVerticeAdj.get(0).getId());
-                //System.out.println("Vertice asd:" + v2.getId());
-                //listaVerticeAdj2 = grafo.getVerticesAdjacentes(v2);
                 for(int i = 0; i < grafo.getVerticesAdjacentes(v2).size(); i++){
                    listaVerticeAdj2.add(grafo.getVerticesAdjacentes(v2).get(i));
                 }
@@ -48,8 +46,8 @@ public class ComponenteConexa {
                     }
                 }
                
-               listaVerticeNVisitado.remove(v2.getId()); 
-               listaVerticeAdj.remove(v2);
+                listaVerticeNVisitado.remove(v2.getId()); 
+                listaVerticeAdj.remove(v2);
             }
             //listaVerticeNVisitado.remove(0);
         }
