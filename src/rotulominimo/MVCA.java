@@ -17,7 +17,7 @@ public class MVCA {
         
     }
     
-    public void doMVCA(GrafoListaAdjacencia grafo, int nVertice, int[][] matrizAdj, int nRotulo){
+    public int doMVCA(GrafoListaAdjacencia grafo, int nVertice, int[][] matrizAdj, int nRotulo){
         ComponenteConexa compconex = new ComponenteConexa();
         int count = nVertice;//contar componentes
         int countdef = 10000;
@@ -92,6 +92,6 @@ public class MVCA {
             teste += listaRotuloUtilizado.get(i) + " ";
         }
         System.out.println("Rotulos utilizados: " + teste);  
-        
+        return listaRotuloUtilizado.size();
     }
 }
